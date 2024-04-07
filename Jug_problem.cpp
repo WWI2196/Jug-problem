@@ -6,41 +6,24 @@ int gcd(int x, int y);
 bool isMultiple(int gcd_value, int target);
 int printSolution(int smaller_jug, int larger_jug, int a, int b, int target);
 
-int gcd(int x, int y) { 
-    if (x % y == 0)
-        return y;
-    else
-        return gcd(y, x % y);
+int gcd(int x, int y) {
+    return (x % y == 0 ? y : gcd(y, x % y));
 }
 
 bool isMultiple(int gcd_value,int target) {
-    if (target % gcd_value == 0)
-        return true;
-    else
-        return false;
+	return (target % gcd_value == 0 ? true:false);
 }
 
 int printSolution(int smaller_jug,int larger_jug,int a,int b, int target){
 
-    if (a == target || b == target) {
-        return 1;
-    }
+    if (a == target || b == target) return 1;
     
-    if (a == 0) {
-        a = smaller_jug;
-    } 
-    else if (b == larger_jug) {
-        b = 0;
-    }
+    if (a == 0) a = smaller_jug;
+    else if (b == larger_jug) b = 0;
     else {
-        if (larger_jug - b >= a) {
-            b += a;
-            a = 0;
-        }
-        else {
-            a += -(larger_jug - b);
-			b = larger_jug;
-        }
+        int pour_amount = min(a, larger_jug - b);
+        a -= pour_amount;
+        b += pour_amount;
     }
 
     cout << "->" <<"(" << a << "," << b << ")";
