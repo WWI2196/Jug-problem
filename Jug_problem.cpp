@@ -23,17 +23,14 @@ bool isMultiple(int gcd_value,int target) {
 int printSolution(int smaller_jug,int larger_jug,int a,int b, int target){
 
     if (a == target || b == target) {
-        cout << a << "," << b << endl;
         return 1;
     }
     
     if (a == 0) {
         a = smaller_jug;
-        
     } 
     else if (b == larger_jug) {
         b = 0;
-
     }
     else {
         if (larger_jug - b >= a) {
@@ -46,7 +43,7 @@ int printSolution(int smaller_jug,int larger_jug,int a,int b, int target){
         }
     }
 
-    cout << a << "," << b << endl;
+    cout << "->" <<"(" << a << "," << b << ")";
     printSolution(smaller_jug, larger_jug, a, b, target);
 
 }
@@ -69,10 +66,11 @@ int main()
     }
 
     if (isMultiple(gcd(smaller_jug, larger_jug), target)) {
+        cout << "(" << 0 << "," << 0 << ")";
         printSolution(smaller_jug, larger_jug, 0, 0, target);
     }
     else
-        cout << "\n -1" << endl;
+        cout << "\n-1" << endl;
 
     return 0;
 }
