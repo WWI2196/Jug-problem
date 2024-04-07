@@ -54,26 +54,12 @@ int printSolution(int smaller_jug,int larger_jug,int a,int b, int target){
 
 int main()
 {
-    int smaller_jug, larger_jug, target;
 
-    cout << "Enter the capacity of the smaller jug : " << endl;
-    cin >> smaller_jug;
 
-    cout << "Enter the capacity of the larger jug : " << endl;
-    cin >>  larger_jug;
 
     cout << "Enter the target amount of water : " << endl;
     cin >> target;
 
-    if (smaller_jug > larger_jug) {
-        swap(smaller_jug, larger_jug);
-    }
-
-    if (isMultiple(gcd(smaller_jug, larger_jug), target)) {
-		printSolution(smaller_jug, larger_jug, 0, 0, target);
-    }
-    else {
-        cout << "\n -1"<< endl;
     }
    
 
